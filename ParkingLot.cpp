@@ -6,34 +6,44 @@
 
 #include <stdexcept>
 
-template<const int V>
+template<const char* NAME, const int V>
 template <typename T, const int U>
-void ParkingLot<V>::LimitedDeque_<T, U>::push_back(const T& value) {
+void ParkingLot<NAME, V>::LimitedDeque_<T, U>::push_back(const T& value) {
     if (this->size() >= maxSize) throw overflow_error("- [LimitedDeque]: Reached maximum size.");
     deque<T>::push_back(value);
 }
 
-template<const int V>
+template<const char* NAME, const int V>
 template<typename T, const int U>
-void ParkingLot<V>::LimitedDeque_<T, U>::push_back(T &&value) {
+void ParkingLot<NAME, V>::LimitedDeque_<T, U>::push_back(T &&value) {
     if (this->size() >= maxSize) throw overflow_error("- [LimitedDeque]: Reached maximum size.");
     deque<T>::push_back(value);
 }
 
-template<const int V>
-ParkingLot<V> & ParkingLot<V>::getInstance() {
-    static ParkingLot<V> instance;
+template<const char* NAME, const int V>
+ParkingLot<NAME, V> & ParkingLot<NAME, V>::getInstance() {
+    static ParkingLot<NAME, V> instance;
     return instance;
 }
 
-template<const int V>
-ParkingLot<V> & ParkingLot<V>::operator<<(ParkingLot &park, const string &carID) {
+template<const char *NAME, const int V>
+void ParkingLot<NAME, V>::in(string carID) {
+    // TODO: 实现函数
+}
+
+template<const char *NAME, const int V>
+void ParkingLot<NAME, V>::out(string carID) {
+    // TODO: 实现函数
+}
+
+template<const char* NAME, const int V>
+ParkingLot<NAME, V> & ParkingLot<NAME, V>::operator<<(ParkingLot &park, const string &carID) {
     in(carID);
     return park;
 }
 
-template<const int V>
-ParkingLot<V> & ParkingLot<V>::operator>>(ParkingLot &park, const string &carID) {
+template<const char* NAME, const int V>
+ParkingLot<NAME, V> & ParkingLot<NAME, V>::operator>>(ParkingLot &park, const string &carID) {
     out(carID);
     return park;
 }

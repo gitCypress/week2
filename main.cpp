@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 
+#include "ParkingLot.hpp"
+
 int main() {
 
-    std::vector<int> s;
-    s.push_back()
+    auto& park = ParkingLot<10>::getInstance();
 
 }

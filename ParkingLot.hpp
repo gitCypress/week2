@@ -10,20 +10,23 @@
 #include <string>
 using namespace std;
 
-template <const int V>
+template <const char* NAME, const int V>
 class ParkingLot {
 
     template <typename T, const int U>
     class LimitedDeque_ : public deque<T> {
-        size_t maxSize = U;
+        const size_t maxSize = U;
     public:
         void push_back(const T& value);
         void push_back(T&& value);
     };
 
-    stack<string, LimitedDeque_<string, V>> park;  // 停车场
-    stack<string> assistant;  // 离场辅助
-    queue<string> passage; // 便道
+    const size_t size_ = V;
+    const string name_ = NAME;
+
+    stack<string, LimitedDeque_<string, V>> park_;  // 停车场
+    stack<string> assistant_;  // 离场辅助
+    queue<string> passage_; // 便道
 
     // 单例限制
     ParkingLot() = default;
