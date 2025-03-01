@@ -37,14 +37,14 @@ void ParkingLot<NAME, V>::out(string carID) {
 }
 
 template<const char* NAME, const int V>
-ParkingLot<NAME, V> & ParkingLot<NAME, V>::operator<<(ParkingLot &park, const string &carID) {
-    in(carID);
+ParkingLot<NAME, V>& operator<<(ParkingLot<NAME, V> &park, const string &carID) {
+    park.in(carID);
     return park;
 }
 
 template<const char* NAME, const int V>
-ParkingLot<NAME, V> & ParkingLot<NAME, V>::operator>>(ParkingLot &park, const string &carID) {
-    out(carID);
+ParkingLot<NAME, V>& operator>>(ParkingLot<NAME, V> &park, const string &carID) {
+    park.out(carID);
     return park;
 }
 

@@ -36,6 +36,7 @@ public:
     static ParkingLot& getInstance();
     ParkingLot(const ParkingLot&) = delete;
     ParkingLot& operator=(const ParkingLot&) = delete;
+
     ParkingLot(ParkingLot&&) = delete;
     ParkingLot& operator=(ParkingLot&&) = delete;
 
@@ -44,8 +45,8 @@ public:
     void out(string carID);
 
     // 语法糖
-    ParkingLot& operator<<(ParkingLot& park, const string &carID);  // 对应 in
-    ParkingLot& operator>>(ParkingLot& park, const string &carID);  // 对应 out
+    friend ParkingLot& operator<<(ParkingLot& park, const string &carID);  // 对应 in
+    friend ParkingLot& operator>>(ParkingLot& park, const string &carID);  // 对应 out
 };
 
 
