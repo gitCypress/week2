@@ -1,5 +1,3 @@
-#include <thread>
-
 #include "ParkingLot.hpp"
 using namespace std;
 
